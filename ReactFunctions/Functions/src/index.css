@@ -1,0 +1,35 @@
+button {
+  margin: 10px;
+}
+
+input {
+  padding: 10px 10px;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: brown;
+}
+
+.div1{
+  margin-top: 30px;
+  height: 400px;
+  width: 400px;
+  background-color: black;
+
+}
+
+.div2{
+  height: 400px;
+  width: 400px;
+  background-color: gray;
+
+}
+
+.div3{
+  height: 400px;
+  width: 400px;
+  background-color: lightgrey;
+
+}
