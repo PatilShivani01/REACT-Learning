@@ -21,6 +21,12 @@ const App = () => {
     setInfo('')
   }
 
+  const deleteNote = (idx) => {
+    const copyTask = [...task];
+    copyTask.splice(idx, 1);
+    setTask(copyTask);
+  }
+
   return (
     <div className='h-screen lg:flex bg-black text-white'>
       <form onSubmit={(elem)=> {
@@ -57,11 +63,16 @@ const App = () => {
 
       <div className='lg:w-1/2 p-10 lg:border-l-2'>
         <h1 className='text-3xl font-bold'>Recent Notes</h1>
-        <div className='flex flex-wrap items-start justify-start gap-5 mt-5 h-full overflow-auto'>
+        <div className='flex flex-wrap items-start justify-start gap-5 mt-5 h-[90%] overflow-auto'>
            {task.map(function(elem, idx) {
-            return <div key={idx} className="relative h-50 w-40 rounded-xl bg-black py-11 px-4 text-black bg-cover p-4 bg-[url('https://imgs.search.brave.com/b9nc5BMwJ963hopkarex8iyCPZDL5oVweOdhvT2icjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjQv/NTg0LzQ2Mi9zbWFs/bC9ibGFuay1zcGFj/ZS13aGl0ZS1zdGlj/a3ktbm90ZS1wbmcu/cG5n')]">
-              <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
-              <p className='mt-4 leading-tight font-medium text-gray-500'>{elem.info}</p>
+            return <div key={idx} className="flex justify-between flex-col items-start relative h-50 w-40 rounded-xl bg-black pt-11 pb-3 px-4 text-black bg-cover p-4 bg-[url('https://imgs.search.brave.com/b9nc5BMwJ963hopkarex8iyCPZDL5oVweOdhvT2icjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjQv/NTg0LzQ2Mi9zbWFs/bC9ibGFuay1zcGFj/ZS13aGl0ZS1zdGlj/a3ktbm90ZS1wbmcu/cG5n')]">
+              <div>
+                <h3 className='leading-tight text-lg font-bold'>{elem.title}</h3>
+                <p className='mt-4 text-xs leading-tight font-semibold text-gray-600'>{elem.info}</p>
+              </div>
+              <button onClick={() => {
+                deleteNote(idx)
+              }} className='w-full cursor-pointer active:scale-95 bg-red-500 text-white text-xs rounded font-bold p-1'>Delete</button>
             </div>
            })}
         </div>
