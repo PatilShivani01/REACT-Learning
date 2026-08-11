@@ -1,0 +1,1 @@
+Local Storage :- Local storage is the storage where we can store small amount of data.
